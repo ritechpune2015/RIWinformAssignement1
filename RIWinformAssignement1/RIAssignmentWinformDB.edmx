@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RIAssignmentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BillingCompanyTbl">
+          <Key>
+            <PropertyRef Name="BillingCompanyID" />
+          </Key>
+          <Property Name="BillingCompanyID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar(max)" />
+          <Property Name="CompanyAddress" Type="varchar(max)" />
+          <Property Name="EmailID" Type="varchar(max)" />
+          <Property Name="ContactNo" Type="varchar(max)" />
+          <Property Name="CityID" Type="bigint" />
+          <Property Name="WebsiteUrl" Type="varchar(max)" />
+          <Property Name="PinCode" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="BillingCompanyUserTbl">
+          <Key>
+            <PropertyRef Name="CompanyUserID" />
+          </Key>
+          <Property Name="CompanyUserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar(max)" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="FirstName" Type="varchar(max)" />
+          <Property Name="LastName" Type="varchar(max)" />
+          <Property Name="EmailID" Type="varchar(max)" />
+          <Property Name="MobileNo" Type="varchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="BillingCompanyID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CityTbl">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="varchar(max)" />
+          <Property Name="StateID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CountryTbl">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="StateTbl">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar(max)" />
+          <Property Name="CountryID" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_BillingCompanyTbl_CityTbl">
+          <End Role="CityTbl" Type="Self.CityTbl" Multiplicity="0..1" />
+          <End Role="BillingCompanyTbl" Type="Self.BillingCompanyTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityTbl">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="BillingCompanyTbl">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillingCompanyUserTbl_BillingCompanyTbl">
+          <End Role="BillingCompanyTbl" Type="Self.BillingCompanyTbl" Multiplicity="0..1" />
+          <End Role="BillingCompanyUserTbl" Type="Self.BillingCompanyUserTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillingCompanyTbl">
+              <PropertyRef Name="BillingCompanyID" />
+            </Principal>
+            <Dependent Role="BillingCompanyUserTbl">
+              <PropertyRef Name="BillingCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTbl_StateTbl">
+          <End Role="StateTbl" Type="Self.StateTbl" Multiplicity="0..1" />
+          <End Role="CityTbl" Type="Self.CityTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateTbl">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="CityTbl">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateTbl_CountryTbl">
+          <End Role="CountryTbl" Type="Self.CountryTbl" Multiplicity="0..1" />
+          <End Role="StateTbl" Type="Self.StateTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTbl">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="StateTbl">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RIAssignmentDBModelStoreContainer">
+          <EntitySet Name="BillingCompanyTbl" EntityType="Self.BillingCompanyTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillingCompanyUserTbl" EntityType="Self.BillingCompanyUserTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CityTbl" EntityType="Self.CityTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryTbl" EntityType="Self.CountryTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateTbl" EntityType="Self.StateTbl" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BillingCompanyTbl_CityTbl" Association="Self.FK_BillingCompanyTbl_CityTbl">
+            <End Role="CityTbl" EntitySet="CityTbl" />
+            <End Role="BillingCompanyTbl" EntitySet="BillingCompanyTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillingCompanyUserTbl_BillingCompanyTbl" Association="Self.FK_BillingCompanyUserTbl_BillingCompanyTbl">
+            <End Role="BillingCompanyTbl" EntitySet="BillingCompanyTbl" />
+            <End Role="BillingCompanyUserTbl" EntitySet="BillingCompanyUserTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTbl_StateTbl" Association="Self.FK_CityTbl_StateTbl">
+            <End Role="StateTbl" EntitySet="StateTbl" />
+            <End Role="CityTbl" EntitySet="CityTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateTbl_CountryTbl" Association="Self.FK_StateTbl_CountryTbl">
+            <End Role="CountryTbl" EntitySet="CountryTbl" />
+            <End Role="StateTbl" EntitySet="StateTbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RIAssignmentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BillingCompanyTbl">
+          <Key>
+            <PropertyRef Name="BillingCompanyID" />
+          </Key>
+          <Property Name="BillingCompanyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CityID" Type="Int64" />
+          <Property Name="WebsiteUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PinCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CityTbl" Relationship="Self.FK_BillingCompanyTbl_CityTbl" FromRole="BillingCompanyTbl" ToRole="CityTbl" />
+          <NavigationProperty Name="BillingCompanyUserTbls" Relationship="Self.FK_BillingCompanyUserTbl_BillingCompanyTbl" FromRole="BillingCompanyTbl" ToRole="BillingCompanyUserTbl" />
+        </EntityType>
+        <EntityType Name="BillingCompanyUserTbl">
+          <Key>
+            <PropertyRef Name="CompanyUserID" />
+          </Key>
+          <Property Name="CompanyUserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="BillingCompanyID" Type="Int64" />
+          <NavigationProperty Name="BillingCompanyTbl" Relationship="Self.FK_BillingCompanyUserTbl_BillingCompanyTbl" FromRole="BillingCompanyUserTbl" ToRole="BillingCompanyTbl" />
+        </EntityType>
+        <EntityType Name="CityTbl">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StateID" Type="Int64" />
+          <NavigationProperty Name="BillingCompanyTbls" Relationship="Self.FK_BillingCompanyTbl_CityTbl" FromRole="CityTbl" ToRole="BillingCompanyTbl" />
+          <NavigationProperty Name="StateTbl" Relationship="Self.FK_CityTbl_StateTbl" FromRole="CityTbl" ToRole="StateTbl" />
+        </EntityType>
+        <EntityType Name="CountryTbl">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="StateTbls" Relationship="Self.FK_StateTbl_CountryTbl" FromRole="CountryTbl" ToRole="StateTbl" />
+        </EntityType>
+        <EntityType Name="StateTbl">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CountryID" Type="Int64" />
+          <NavigationProperty Name="CityTbls" Relationship="Self.FK_CityTbl_StateTbl" FromRole="StateTbl" ToRole="CityTbl" />
+          <NavigationProperty Name="CountryTbl" Relationship="Self.FK_StateTbl_CountryTbl" FromRole="StateTbl" ToRole="CountryTbl" />
+        </EntityType>
+        <Association Name="FK_BillingCompanyTbl_CityTbl">
+          <End Role="CityTbl" Type="Self.CityTbl" Multiplicity="0..1" />
+          <End Role="BillingCompanyTbl" Type="Self.BillingCompanyTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityTbl">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="BillingCompanyTbl">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillingCompanyUserTbl_BillingCompanyTbl">
+          <End Role="BillingCompanyTbl" Type="Self.BillingCompanyTbl" Multiplicity="0..1" />
+          <End Role="BillingCompanyUserTbl" Type="Self.BillingCompanyUserTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillingCompanyTbl">
+              <PropertyRef Name="BillingCompanyID" />
+            </Principal>
+            <Dependent Role="BillingCompanyUserTbl">
+              <PropertyRef Name="BillingCompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CityTbl_StateTbl">
+          <End Role="StateTbl" Type="Self.StateTbl" Multiplicity="0..1" />
+          <End Role="CityTbl" Type="Self.CityTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateTbl">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="CityTbl">
+              <PropertyRef Name="StateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StateTbl_CountryTbl">
+          <End Role="CountryTbl" Type="Self.CountryTbl" Multiplicity="0..1" />
+          <End Role="StateTbl" Type="Self.StateTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountryTbl">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="StateTbl">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RIAssignmentDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillingCompanyTbls" EntityType="Self.BillingCompanyTbl" />
+          <EntitySet Name="BillingCompanyUserTbls" EntityType="Self.BillingCompanyUserTbl" />
+          <EntitySet Name="CityTbls" EntityType="Self.CityTbl" />
+          <EntitySet Name="CountryTbls" EntityType="Self.CountryTbl" />
+          <EntitySet Name="StateTbls" EntityType="Self.StateTbl" />
+          <AssociationSet Name="FK_BillingCompanyTbl_CityTbl" Association="Self.FK_BillingCompanyTbl_CityTbl">
+            <End Role="CityTbl" EntitySet="CityTbls" />
+            <End Role="BillingCompanyTbl" EntitySet="BillingCompanyTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillingCompanyUserTbl_BillingCompanyTbl" Association="Self.FK_BillingCompanyUserTbl_BillingCompanyTbl">
+            <End Role="BillingCompanyTbl" EntitySet="BillingCompanyTbls" />
+            <End Role="BillingCompanyUserTbl" EntitySet="BillingCompanyUserTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CityTbl_StateTbl" Association="Self.FK_CityTbl_StateTbl">
+            <End Role="StateTbl" EntitySet="StateTbls" />
+            <End Role="CityTbl" EntitySet="CityTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StateTbl_CountryTbl" Association="Self.FK_StateTbl_CountryTbl">
+            <End Role="CountryTbl" EntitySet="CountryTbls" />
+            <End Role="StateTbl" EntitySet="StateTbls" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RIAssignmentDBModelStoreContainer" CdmEntityContainer="RIAssignmentDBEntities">
+          <EntitySetMapping Name="BillingCompanyTbls">
+            <EntityTypeMapping TypeName="RIAssignmentDBModel.BillingCompanyTbl">
+              <MappingFragment StoreEntitySet="BillingCompanyTbl">
+                <ScalarProperty Name="BillingCompanyID" ColumnName="BillingCompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="WebsiteUrl" ColumnName="WebsiteUrl" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillingCompanyUserTbls">
+            <EntityTypeMapping TypeName="RIAssignmentDBModel.BillingCompanyUserTbl">
+              <MappingFragment StoreEntitySet="BillingCompanyUserTbl">
+                <ScalarProperty Name="CompanyUserID" ColumnName="CompanyUserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BillingCompanyID" ColumnName="BillingCompanyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CityTbls">
+            <EntityTypeMapping TypeName="RIAssignmentDBModel.CityTbl">
+              <MappingFragment StoreEntitySet="CityTbl">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryTbls">
+            <EntityTypeMapping TypeName="RIAssignmentDBModel.CountryTbl">
+              <MappingFragment StoreEntitySet="CountryTbl">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateTbls">
+            <EntityTypeMapping TypeName="RIAssignmentDBModel.StateTbl">
+              <MappingFragment StoreEntitySet="StateTbl">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
