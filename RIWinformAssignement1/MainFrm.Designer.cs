@@ -74,6 +74,7 @@
             this.countryToolStripMenuItem.Name = "countryToolStripMenuItem";
             this.countryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.countryToolStripMenuItem.Text = "Country";
+            this.countryToolStripMenuItem.Click += new System.EventHandler(this.countryToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -117,29 +118,29 @@
             // expenseTypeToolStripMenuItem
             // 
             this.expenseTypeToolStripMenuItem.Name = "expenseTypeToolStripMenuItem";
-            this.expenseTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.expenseTypeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.expenseTypeToolStripMenuItem.Text = "Expense Type";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 6);
             // 
             // paymentModeToolStripMenuItem
             // 
             this.paymentModeToolStripMenuItem.Name = "paymentModeToolStripMenuItem";
-            this.paymentModeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.paymentModeToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.paymentModeToolStripMenuItem.Text = "Payment Mode";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
             // 
             // itemCategoryToolStripMenuItem
             // 
             this.itemCategoryToolStripMenuItem.Name = "itemCategoryToolStripMenuItem";
-            this.itemCategoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.itemCategoryToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.itemCategoryToolStripMenuItem.Text = "Item Category";
             // 
             // MainFrm

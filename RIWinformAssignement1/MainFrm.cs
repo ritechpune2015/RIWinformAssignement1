@@ -16,5 +16,13 @@ namespace RIWinformAssignement1
         {
             InitializeComponent();
         }
+
+        private void countryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CountryListFrm frm = new CountryListFrm();
+            frm.MdiParent = this;
+            frm.Show();
+          //  frm.ShowDialog();
+        }
     }
 }

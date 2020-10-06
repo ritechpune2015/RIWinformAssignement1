@@ -64,6 +64,24 @@
     <Compile Include="CityTbl.cs">
       <DependentUpon>RIAssignmentWinformDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CountryAddFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CountryAddFrm.Designer.cs">
+      <DependentUpon>CountryAddFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CountryEditFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CountryEditFrm.Designer.cs">
+      <DependentUpon>CountryEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CountryListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CountryListFrm.Designer.cs">
+      <DependentUpon>CountryListFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CountryTbl.cs">
       <DependentUpon>RIAssignmentWinformDB.tt</DependentUpon>
     </Compile>
@@ -99,6 +117,15 @@
     <Compile Include="StateTbl.cs">
       <DependentUpon>RIAssignmentWinformDB.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CountryAddFrm.resx">
+      <DependentUpon>CountryAddFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CountryEditFrm.resx">
+      <DependentUpon>CountryEditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CountryListFrm.resx">
+      <DependentUpon>CountryListFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +141,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DatabaseWordFile.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -146,6 +174,7 @@
       <DependentUpon>RIAssignmentWinformDB.edmx</DependentUpon>
       <LastGenOutput>RIAssignmentWinformDB.cs</LastGenOutput>
     </Content>
+    <Content Include="WinformAssignmentSQLFile.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
