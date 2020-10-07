@@ -86,6 +86,7 @@
             this.stateToolStripMenuItem.Name = "stateToolStripMenuItem";
             this.stateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.stateToolStripMenuItem.Text = "State";
+            this.stateToolStripMenuItem.Click += new System.EventHandler(this.stateToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -97,6 +98,7 @@
             this.cityToolStripMenuItem.Name = "cityToolStripMenuItem";
             this.cityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cityToolStripMenuItem.Text = "City";
+            this.cityToolStripMenuItem.Click += new System.EventHandler(this.cityToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 

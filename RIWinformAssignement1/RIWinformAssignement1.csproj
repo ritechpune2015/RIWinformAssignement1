@@ -61,6 +61,24 @@
     <Compile Include="BillingCompanyUserTbl.cs">
       <DependentUpon>RIAssignmentWinformDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="CityAddFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CityAddFrm.Designer.cs">
+      <DependentUpon>CityAddFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CityEditFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CityEditFrm.Designer.cs">
+      <DependentUpon>CityEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CityListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CityListFrm.Designer.cs">
+      <DependentUpon>CityListFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CityTbl.cs">
       <DependentUpon>RIAssignmentWinformDB.tt</DependentUpon>
     </Compile>
@@ -114,9 +132,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RIAssignmentWinformDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="StateAddFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StateAddFrm.Designer.cs">
+      <DependentUpon>StateAddFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StateEditFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StateEditFrm.Designer.cs">
+      <DependentUpon>StateEditFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StateListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StateListFrm.Designer.cs">
+      <DependentUpon>StateListFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StateTbl.cs">
       <DependentUpon>RIAssignmentWinformDB.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CityAddFrm.resx">
+      <DependentUpon>CityAddFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CityEditFrm.resx">
+      <DependentUpon>CityEditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CityListFrm.resx">
+      <DependentUpon>CityListFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CountryAddFrm.resx">
       <DependentUpon>CountryAddFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +186,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StateAddFrm.resx">
+      <DependentUpon>StateAddFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateEditFrm.resx">
+      <DependentUpon>StateEditFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateListFrm.resx">
+      <DependentUpon>StateListFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DatabaseWordFile.docx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

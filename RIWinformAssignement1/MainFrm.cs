@@ -24,5 +24,19 @@ namespace RIWinformAssignement1
             frm.Show();
           //  frm.ShowDialog();
         }
+
+        private void stateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StateListFrm frm = new StateListFrm();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void cityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CityListFrm frm = new CityListFrm();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
